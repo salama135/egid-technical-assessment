@@ -1,0 +1,1 @@
+D:\_Projects\egid-technical-assessment\StockExchange\stockexchange.client\obj\Debug\stockexchange.client.esproj.CoreCompileInputs.cache
