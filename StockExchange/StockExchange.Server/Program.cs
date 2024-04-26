@@ -17,6 +17,7 @@ namespace StockExchange.Server
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddSignalR();
+            builder.Services.AddDbContext<StockExchangeApiContext>();     
 
             var app = builder.Build();
 

@@ -8,6 +8,11 @@ namespace StockExchange.Server.DTOs
         public double Price { get; set; }
         public DateTime Timestamp { get; set; }
 
+        public StockDto()
+        {
+
+        }
+
         public StockDto(Stock stock)
         {
             this.Symbol = stock.Symbol;
