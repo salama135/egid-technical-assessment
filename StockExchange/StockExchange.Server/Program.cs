@@ -1,4 +1,7 @@
 
+using StockExchange.Server.Context;
+using StockExchange.Server.Hubs;
+
 namespace StockExchange.Server
 {
     public class Program
@@ -13,6 +16,7 @@ namespace StockExchange.Server
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddSignalR();
 
             var app = builder.Build();
 
@@ -30,8 +34,9 @@ namespace StockExchange.Server
 
             app.UseAuthorization();
 
-
             app.MapControllers();
+
+            app.MapHub<StockHub>("/stockHub");           
 
             app.MapFallbackToFile("/index.html");
 
