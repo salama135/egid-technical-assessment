@@ -1,6 +1,7 @@
 
 using StockExchange.Server.Context;
 using StockExchange.Server.Hubs;
+using Microsoft.EntityFrameworkCore;
 
 namespace StockExchange.Server
 {
@@ -13,12 +14,13 @@ namespace StockExchange.Server
             // Add services to the container.
 
             builder.Services.AddControllers();
+            builder.Services.AddDbContext<StockExchangeApiContext>(opt => {
+                opt.UseInMemoryDatabase("StockExchangeDb");
+            });
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddSignalR();
-            builder.Services.AddDbContext<StockExchangeApiContext>();     
-
             var app = builder.Build();
 
             app.UseDefaultFiles();

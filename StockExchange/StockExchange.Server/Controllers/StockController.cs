@@ -55,8 +55,15 @@ namespace StockExchange.Server.Controllers
         [HttpPost]
         public ActionResult<StockDto> PostStock(StockDto stockDto)
         {
+            if(_context.Stocks.Any(s => s.Symbol.Equals(stockDto.Symbol)))
+            {
+                return Conflict();
+            }
+
             var stock = new Stock
             {
+                Id = Guid.NewGuid(),
+                Quantity = stockDto.Quantity,
                 Symbol = stockDto.Symbol,
                 Price = stockDto.Price,
                 Timestamp = DateTime.Now
