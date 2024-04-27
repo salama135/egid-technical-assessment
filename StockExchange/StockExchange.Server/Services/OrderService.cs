@@ -65,7 +65,7 @@ namespace StockExchange.Server.Services
             }
         }
 
-        private decimal AccountBalance { get; set; }
+        private double AccountBalance { get; set; }
 
         private int GetShareCount(string symbol)
         {

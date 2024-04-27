@@ -24,7 +24,7 @@ namespace StockExchange.Server.Repository
 
         public Stock GetStockBySymbol(string symbol)
         {
-            return _context.Stocks.FirstOrDefault(s => s.Symbol == symbol);
+            return _context.Stocks.FirstOrDefault(s => s.Symbol.Equals(symbol));
         }
 
         public IEnumerable<Stock> GetAllStocks()

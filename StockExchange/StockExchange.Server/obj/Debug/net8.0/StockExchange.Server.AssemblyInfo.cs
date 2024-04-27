@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StockExchange.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1f97ac0f9ddb522b57be3fd5beecb835c470e797")]
 [assembly: System.Reflection.AssemblyProductAttribute("StockExchange.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StockExchange.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as signalR from '@microsoft/signalr';
 import { Observable } from 'rxjs';
-import { StockDto } from './StockDto';
+import { StockVm } from './StockVm';
 
 @Injectable({
   providedIn: 'root',
@@ -31,11 +31,11 @@ export class StockSignalRService {
     });
   }
 
-  updateStockPrice(): Observable<StockDto> {
-    return new Observable<StockDto>((observer) => {
+  updateStockPrice(): Observable<StockVm> {
+    return new Observable<StockVm>((observer) => {
       this.hubConnection.on('ReceivePrice', (symbol: string, price: number, timestamp: string) => {
         console.log(`hubConnection: Received stock price update for ${symbol}: ${price} at ${timestamp}`);
-        observer.next(new StockDto(price, symbol, timestamp));
+        observer.next(new StockVm(price, symbol, timestamp));
       });
     });
   }

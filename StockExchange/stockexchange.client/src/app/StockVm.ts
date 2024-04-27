@@ -1,4 +1,4 @@
-export class StockDto
+export class StockVm
 {
   public price: number = 0;
   public symbol: string = "";

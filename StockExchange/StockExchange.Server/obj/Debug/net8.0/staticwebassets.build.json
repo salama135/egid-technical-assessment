@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "QCgFPLKr90bM3wr1zJBduwAmXDuVgf8NeOyx0Cjz8SI=",
+  "Hash": "JismdOrXoFZiaw51J9UWG3avF452AjQsAcxF0mZmCG0=",
   "Source": "StockExchange.Server",
   "BasePath": "_content/StockExchange.Server",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "D:\\_Projects\\egid-technical-assessment\\StockExchange\\stockexchange.client\\stockexchange.client.esproj",
+      "Identity": "C:\\Users\\salam\\source\\repos\\salama135\\egid-technical-assessment\\StockExchange\\stockexchange.client\\stockexchange.client.esproj",
       "Version": 2,
       "Source": "stockexchange.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",

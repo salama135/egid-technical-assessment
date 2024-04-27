@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { StockSignalRService } from './stock-signalr.service';
-import { StockDto } from './StockDto';
+import { StockVm } from './StockVm';
 import { Chart } from 'chart.js/auto';
 interface WeatherForecast {
   date: string;
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.createChart();
     this.signalRService.startConnection().subscribe(() => {
-      this.signalRService.updateStockPrice().subscribe((stock: StockDto) => {
+      this.signalRService.updateStockPrice().subscribe((stock: StockVm) => {
         console.log(`subscribe: Received stock price update for ${stock.symbol}: ${stock.price} at ${stock.timestamp}`);
         this.prices.push(stock.price)
         this.timestamp.push(stock.timestamp);

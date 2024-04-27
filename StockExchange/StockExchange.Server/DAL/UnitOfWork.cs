@@ -8,6 +8,7 @@ namespace StockExchange.Server.DAL
     {
         IOrderRepository OrderRepository { get; }
         IStockRepository StockRepository { get; }
+        IUserRepository UserRepository { get; }
         int Complete();
         void Dispose();
     }
@@ -17,12 +18,14 @@ namespace StockExchange.Server.DAL
         private readonly StockExchangeApiContext _context;
         public IOrderRepository OrderRepository { get; private set; }
         public IStockRepository StockRepository { get; private set; }
+        public IUserRepository UserRepository { get; private set; }
 
-        public UnitOfWork(StockExchangeApiContext context)
+        public UnitOfWork(StockExchangeApiContext context, IStockRepository StockRepository)
         {
             _context = context;
-            OrderRepository = new OrderRepository(_context);
-            StockRepository = new StockRepository(_context);
+            //this.OrderRepository = OrderRepository;
+            this.StockRepository = StockRepository;
+            //this.UserRepository = UserRepository;
         }
 
         public int Complete()

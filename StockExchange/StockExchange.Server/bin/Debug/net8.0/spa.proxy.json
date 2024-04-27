@@ -3,7 +3,7 @@
 "ServerUrl": "https://localhost:4200",
 "RedirectUrl": "",
 "LaunchCommand": "npm start",
-"WorkingDirectory": "D:\\_Projects\\egid-technical-assessment\\StockExchange\\StockExchange.Server\\..\\stockexchange.client",
+"WorkingDirectory": "C:\\Users\\salam\\source\\repos\\salama135\\egid-technical-assessment\\StockExchange\\StockExchange.Server\\..\\stockexchange.client",
 "MaxTimeoutInSeconds": "120",
 "KeepRunning": "false"
 }
