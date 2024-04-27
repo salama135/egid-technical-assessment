@@ -12,6 +12,7 @@ namespace StockExchange.Server
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
             builder.Services.AddControllers();
             builder.Services.AddDbContext<StockExchangeApiContext>(opt => {
@@ -21,6 +22,18 @@ namespace StockExchange.Server
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddSignalR();
+            builder.Services.AddSingleton<StockPriceGenerator>();
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(MyAllowSpecificOrigins,
+                    policy => {
+                        policy.AllowAnyHeader();
+                        policy.AllowAnyMethod();
+                        policy.SetIsOriginAllowed((host) => true);
+                        policy.AllowCredentials();
+                    });
+            });
+
             var app = builder.Build();
 
             app.UseDefaultFiles();
@@ -39,11 +52,16 @@ namespace StockExchange.Server
 
             app.MapControllers();
 
-            app.MapHub<StockHub>("/stockHub");           
+            app.UseCors(MyAllowSpecificOrigins);
+            app.MapHub<StockHub>("/stockHub");
 
             app.MapFallbackToFile("/index.html");
+            
+            StockPriceGenerator stockPriceGenerator = app.Services.GetRequiredService<StockPriceGenerator>();
+            stockPriceGenerator.Start();
 
             app.Run();
+
         }
     }
 }

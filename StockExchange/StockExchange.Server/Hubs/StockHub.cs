@@ -4,9 +4,16 @@ namespace StockExchange.Server.Hubs
 {
     public class StockHub : Hub
     {
-        public async Task UpdateStockPrice(string symbol, decimal price)
+
+        public StockHub()
         {
-            await Clients.All.SendAsync("updateStockPrice", symbol, price);
+                
+        }
+
+        [HubMethodName("SendPrice")]
+        public async Task SendPrice(string symbol, decimal price, DateTime timestamp)
+        {
+            await Clients.All.SendAsync("ReceivePrice", symbol, price, timestamp);
         }
     }
 }
